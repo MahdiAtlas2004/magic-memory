@@ -40,14 +40,19 @@ function App() {
     setTurns((prevTurns) => prevTurns + 1);
   };
 
+  // Compare 2 selected cards
   useEffect(() => {
-    if(choiceOne.src === choiceTwo.src) {
-      resetTurn();
-      console.log("Match", turns);
-    } else {
-      console.log("does not match");
+    if (choiceOne && choiceTwo) {
+      if (choiceOne.src === choiceTwo.src) {
+        console.log("Match", turns);
+        resetTurn();
+      } else {
+        console.log("does not match");
+        resetTurn();
+      }
     }
-  }, [handleChoice]);
+  }, [choiceOne, choiceTwo]);
+
   return (
     <div className="App">
       <h1>Magic Match</h1>
