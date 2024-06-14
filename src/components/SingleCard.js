@@ -2,11 +2,13 @@ import "./SingleCard.css";
 
 const SingleCard = ({ card, handleChoice, flipped, disabled }) => {
   const handleClick = () => {
-    if(!disabled) {
+    //Check if the selected card is disabled or not
+    if (!disabled) {
       handleChoice(card);
     }
   };
 
+  //Returning JSX Template
   return (
     <div className="card">
       <div className={flipped ? "flipped" : ""}>

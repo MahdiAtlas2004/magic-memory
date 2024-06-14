@@ -1,5 +1,10 @@
+/* Basic styles */
 .card {
   position: relative;
+  cursor: pointer;
+}
+.card:hover {
+  box-shadow: 2px 2px 40px 0.2px #c23866;
 }
 .card img {
   width: 100%;

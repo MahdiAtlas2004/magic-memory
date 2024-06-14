@@ -20,11 +20,15 @@ function App() {
   const [disabled, setDisabled] = useState(false);
 
   //shuffle card
+  //This function create a new game
   const shuffleCards = () => {
     const shuffledCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
 
+    //Set choice one and two to null for not counting the number of turns with previous game
+    setChoiceOne(null);
+    setChoiceTwo(null);
     setCards(shuffledCards);
     setTurns(0);
   };
@@ -65,7 +69,10 @@ function App() {
     }
   }, [choiceOne, choiceTwo]);
 
-  console.log(cards);
+  //start a new game automatically
+  useEffect(() => {
+    shuffleCards();
+  }, []);
 
   //Returning JSX template
   return (
@@ -84,6 +91,7 @@ function App() {
           />
         ))}
       </div>
+      <p>Turns: {turns}</p>
     </div>
   );
 }
