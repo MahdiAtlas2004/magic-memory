@@ -23,3 +23,9 @@ button:hover {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
 }
+
+@media only screen and (max-width: 400px){
+  .App {
+    margin: 40px 20px;
+  }
+}
